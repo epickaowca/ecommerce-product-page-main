@@ -42,6 +42,15 @@
       </nav>
       <div class="nav-backdrop"></div>
       <div class="cta-container">
+        <dialog class="cart-container" open>
+          <div class="heading-section">
+            <span>Cart</span>
+          </div>
+          <div class="main-section">
+            <span class="empty-span visible">Your cart is empty.</span>
+            <button class="checkout-btn">checkout</button>
+          </div>
+        </dialog>
         <img class="cart" src="./assets/icon-cart.svg" />
         <img class="avatar" src="./assets/image-avatar.png" />
       </div>
@@ -76,11 +85,12 @@
         </div>
         <div class="buttons-container">
           <div class="amount-container">
-            <button>-</button>
-            <input type="number" value="0">
-            <button>+</button>
+            <button class="quantity-btn" data-sign="minus">-</button>
+            <input id="quantity-input" type="number" value="1" min="1">
+            <button class="quantity-btn" data-sign="plus">+</button>
           </div>
-          <button class="add-to-cart-btn"><img src="./assets/icon-cart-white.svg" alt="cart-icon"> Add to cart</button>
+          <button class="add-to-cart-btn"><img src="./assets/icon-cart-white.svg" alt="cart-icon"><span>Add to
+              cart</span></button>
         </div>
       </div>
     </main>
