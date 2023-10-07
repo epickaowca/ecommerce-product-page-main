@@ -12,6 +12,35 @@ const addToCartBtns = Array.from(document.querySelectorAll(".add-to-cart-btn"));
 const mainSection = document.querySelector(".main-section");
 const cartContainer = document.querySelector(".cart-container");
 const cartIcon = document.querySelector(".cart");
+const imgArrows = Array.from(document.querySelectorAll(".img-arrow"));
+const mainProductImage = document.querySelector(".main-product-image");
+const thumbnailImages = Array.from(
+  document.querySelectorAll(".thumbnail-container div")
+);
+
+thumbnailImages.forEach((el, index) => {
+  el.addEventListener("click", () => {
+    changeProductImage(index + 1);
+    setThumbnailImageActive(index);
+  });
+});
+
+imgArrows.forEach((el) => {
+  el.addEventListener("click", () => {
+    const direction = el.dataset.direction;
+    const index = +mainProductImage.classList[1].slice(-1);
+    const isLast = index === 4;
+    const isFirst = index === 1;
+
+    if (direction === "next" && !isLast) {
+      changeProductImage(index + 1);
+      setThumbnailImageActive(index);
+    } else if (direction === "previous" && !isFirst) {
+      changeProductImage(index - 1);
+      setThumbnailImageActive(index);
+    }
+  });
+});
 
 cartIcon.addEventListener("click", () => {
   const isDialogOpen = cartContainer.open;
@@ -109,4 +138,19 @@ function toggleOverflow(el, isOverflow) {
   } else {
     el.style.overflow = "hidden";
   }
+}
+
+function changeProductImage(index) {
+  const { classList } = mainProductImage;
+  const currentClassImg = classList[1];
+  classList.replace(currentClassImg, `img-${index}`);
+}
+
+function setThumbnailImageActive(index) {
+  thumbnailImages.forEach((el, elIndex) => {
+    el.classList.remove("active");
+    if (elIndex === index) {
+      el.classList.add("active");
+    }
+  });
 }

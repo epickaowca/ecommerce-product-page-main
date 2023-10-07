@@ -143,6 +143,19 @@ body {
   max-height: 450px;
 }
 
+.product-image-container .main-product-image.img-1 {
+  background-image: url("./assets/image-product-1.jpg");
+}
+.product-image-container .main-product-image.img-2 {
+  background-image: url("./assets/image-product-2.jpg");
+}
+.product-image-container .main-product-image.img-3 {
+  background-image: url("./assets/image-product-3.jpg");
+}
+.product-image-container .main-product-image.img-4 {
+  background-image: url("./assets/image-product-4.jpg");
+}
+
 .product-image-container .arrows-container {
   position: absolute;
   width: 100%;
@@ -182,6 +195,7 @@ body {
   background-position: center;
   background-size: cover;
   border-radius: var(--border-radius-background-image);
+  cursor: pointer;
 }
 
 .product-image-container .thumbnail-container div.active {
