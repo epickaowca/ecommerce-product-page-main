@@ -104,6 +104,7 @@ addToCartBtns.forEach((el) => {
         toggleVisibleClass(checkoutBtn);
       }
       mainSection.prepend(itemEl);
+      cartContainer.show();
     }
   });
 });
