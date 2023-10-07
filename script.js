@@ -10,6 +10,17 @@ const quantityInput = document.querySelector("#quantity-input");
 const quantityBtns = Array.from(document.querySelectorAll(".quantity-btn"));
 const addToCartBtns = Array.from(document.querySelectorAll(".add-to-cart-btn"));
 const mainSection = document.querySelector(".main-section");
+const cartContainer = document.querySelector(".cart-container");
+const cartIcon = document.querySelector(".cart");
+
+cartIcon.addEventListener("click", () => {
+  const isDialogOpen = cartContainer.open;
+  if (isDialogOpen) {
+    cartContainer.close();
+  } else {
+    cartContainer.show();
+  }
+});
 
 addToCartBtns.forEach((el) => {
   el.addEventListener("click", () => {
